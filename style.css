@@ -1,18 +1,34 @@
-/* Import nice font */
+
+
+:root {
+  --accent-yellow: #fff3a3;   /* very soft pastel yellow */
+  --accent-glow: rgba(255, 243, 163, 0.4);
+}/* Import font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
+/* COLORS */
+:root {
+  --bg: #f4fbf7;
+  --text: #1e2e2a;
+  --subtext: #6b8f87;
+  --accent: #a8e6cf;
+  --border: #d6f5e3;
+  --card: #ffffff;
+}
+
+/* BODY */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #000;
-  color: #ddd;
+  background: var(--bg);
+  color: var(--text);
 }
 
-/* Layout */
+/* LAYOUT */
 section, header, footer {
   max-width: 900px;
   margin: auto;
-  padding: 80px 20px;
+  padding: 50px 20px; /* reduced spacing */
 }
 
 /* NAV */
@@ -21,125 +37,142 @@ header h2 {
 }
 
 nav {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 nav a {
-  color: #aaa;
-  margin-right: 20px;
+  color: var(--subtext);
+  margin-right: 18px;
   text-decoration: none;
   font-size: 14px;
+  transition: 0.3s;
 }
 
 nav a:hover {
-  color: #fff;
+  color: var(--accent-yellow);
+  text-shadow: 0 0 6px var(--accent-glow);
+  transition: 0.3s;
+}
 }
 
 /* HERO */
 .hero h1 {
-  font-size: 64px;
+  font-size: 56px; /* slightly reduced */
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .hero p {
-  font-size: 22px;
-  color: #888;
+  font-size: 20px;
+  color: var(--subtext);
 }
 
 /* SECTION TITLES */
-h3 {
-  color: #666;
-  font-size: 12px;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
+h3::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--accent-yellow);
+  margin-top: 8px;
 }
 
 /* TEXT */
 p {
-  font-size: 18px;
-  line-height: 1.8;
+  font-size: 17px;
+  line-height: 1.7;
 }
 
 /* DIVIDER */
 hr {
   border: none;
-  border-top: 1px solid #222;
+  border-top: 1px solid var(--border);
 }
 
 /* CARDS */
 .card {
-  border-left: 2px solid #333;
-  padding-left: 15px;
-  margin-bottom: 25px;
+  background: var(--card);
+  border-left: 3px solid var(--accent);
+  padding: 15px;
+  margin-bottom: 18px;
+  border-radius: 6px;
+}
+.card:hover {
+  border-left: 2px solid var(--accent-yellow);
+  transform: translateX(4px);
+  transition: 0.3s ease;
 }
 
 /* TECH STACK */
 .tech-stack {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .tech-stack span {
   display: inline-block;
-  border: 1px solid #333;
-  padding: 10px 14px;
-  margin: 5px;
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  margin: 4px;
   border-radius: 6px;
+  background: #ecfff5;
 }
 
 /* INTERESTS */
 .interests {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 15px;
+  margin-top: 15px;
 }
 
 .interests div {
-  border-bottom: 1px solid #222;
-  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 0;
 }
 
 /* FORM */
 form {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 input {
   width: 100%;
-  padding: 14px;
+  padding: 12px;
   margin-bottom: 10px;
-  background: #111;
-  border: 1px solid #333;
-  color: #fff;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 6px;
 }
 
+/* BUTTON */
 button {
-  width: 100%;
-  padding: 14px;
-  background: #ddd;
-  border: none;
+  background: #dfffe2; /* your pastel green */
   color: #000;
-  cursor: pointer;
-  font-size: 16px;
+  transition: 0.3s ease;
 }
 
 button:hover {
-  background: #fff;
+  background: var(--accent-yellow);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+button:hover {
+  background: #c6f3dd;
 }
 
 /* MESSAGE LIST */
 #msg-list {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
-/* ANIMATION */
+/* MESSAGE ANIMATION */
 .message {
   opacity: 0;
-  transform: translateY(15px);
+  transform: translateY(10px);
   animation: fadeIn 0.5s ease forwards;
-  border-bottom: 1px solid #222;
-  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 0;
 }
 
 @keyframes fadeIn {
@@ -152,7 +185,18 @@ button:hover {
 /* FOOTER */
 footer {
   text-align: left;
-  color: #777;
-  font-size: 14px;
+  color: var(--subtext);
+  font-size: 13px;
 }
-animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+/* FIX LIST STYLING */
+ul {
+  padding-left: 0;
+  margin: 10px 0;
+}
+
+ul li {
+  list-style: none; /* remove bullets */
+  margin-bottom: 8px;
+  font-size: 17px;
+  color: var(--text);
+}
